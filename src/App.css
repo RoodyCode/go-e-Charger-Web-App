@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4f4f459;
+  color: #697887;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 45vw;
+  height: 50vh;
+  border-radius: 0.8rem;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  padding: 5vh 0;
+  display: flex;
+  flex: 5.5;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  color: #6d7b89;
+}
+
+button {
+  cursor: pointer;
+  background-color: rgba(98, 207, 253, 0.2);
+  color: #4ec0f1;
+  border: solid 1px transparent;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 0.4rem;
+  padding: 1rem 2rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(98, 206, 253, 0.32);
+}
+
+button:focus {
+  background-color: #64d0ff;
+  color: #ffffff;
+}
+
+.btn-active {
+  background-color: #64d0ff;
+  color: #ffffff;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-group button {
+  border-radius: 0;
+}
+
+.btn-group button:first-child {
+  border-bottom-left-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+}
+
+.btn-group button:last-child {
+  border-bottom-right-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+}
+
+.btn-group-gap {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.list {
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  overflow-y: auto;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0.3rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border-radius: 0.3rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d5d5d5;
+}
+
+/* Nav */
+
+nav {
+  background: #54b8e5;
+  border-top-left-radius: 0.8rem;
+  border-bottom-left-radius: 0.8rem;
+  color: #ffffff;
+  font-weight: 400;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  flex: 1;
+}
+
+nav div {
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 6vh;
+}
+
+nav div svg {
+  font-size: 2.4rem;
+}
+
+nav div span {
+  line-height: 100%;
+}
+
+nav div:first-of-type {
+  border-top-left-radius: 0.8rem;
+}
+
+nav div:last-of-type {
+  border-bottom-left-radius: 0.8rem;
+}
+
+.nav-active {
+  background: linear-gradient(180deg, #64d0ff 0%, #56c4f3 100%);
+}
+
+/* Charge */
+
+.charge-toggle {
+  cursor: pointer;
+  font-size: 3rem;
+  color: #ffffff;
+  background: linear-gradient(180deg, #64d0ff 0%, #4ec0f1 100%);
+  border-radius: 50%;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+}
+
+.charge-toggle:hover {
+  background: linear-gradient(180deg, #85daff 0%, #56c7f7 100%);
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+  }
+}
+
+.stats {
+  display: flex;
+  width: 90%;
+  margin-top: 3rem;
+}
+
+.box {
+  flex: 1;
+}
+
+.box-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.box-title {
+  color: #737f8b;
+}
+
+.box-icon {
+  font-size: 1.3rem;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  color: #4ec0f1;
+  background-color: rgba(98, 207, 253, 0.2);
+}
+
+.box-content {
+  color: #697887;
+}
