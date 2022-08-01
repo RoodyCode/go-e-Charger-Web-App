@@ -8,16 +8,28 @@ Lightweight web app made with React and Vite
 
 ![Energy](https://raw.githubusercontent.com/RoodyCode/go-eCharger-Web-App/master/screenshots/energy.jpeg)
 
-## Setup
+## Features 
 
-```sh
+- Monitoring charging status & energy consumption
+- Custom intervals
+- Start / Stop / Pause charging
+- Set amp level
+- Restart system & Reset IP Address
+- List RFID Chips including stats
+
+## Run locally
+
+Clone the project
+```bash
 git clone https://github.com/RoodyCode/go-eCharger-Web-App.git
 ```
 
-```sh
+Navigate to the project directory and install the dependencies
+```bash
 cd go-eCharger-Web-App && npm install
 ```
 
-```sh
+Start the server
+```bash
 npm run preview
 ```
