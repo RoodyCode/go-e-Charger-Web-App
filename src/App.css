@@ -134,7 +134,7 @@ nav {
   border-bottom-left-radius: 0.8rem;
   color: #ffffff;
   font-weight: 400;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -250,4 +250,14 @@ nav div:last-of-type {
 
 .box-content {
   color: #697887;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1400px) {
+  body {
+    font-size: 90%;
+  }
+  .App {
+    width: 60vw;
+    height: 75vh;
+  }
 }
