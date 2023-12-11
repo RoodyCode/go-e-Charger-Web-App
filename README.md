@@ -47,5 +47,6 @@ npm install
 ### Start the Server
 
 ```bash
+npm run build
 npm run preview
 ```
