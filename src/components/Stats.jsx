@@ -1,23 +1,12 @@
 import Box from './Box'
+import { statusLabel } from '../chargeState'
 import { faHeartPulse, faChargingStation, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 const Stats = ({ data }) => {
   return (
     <div className="stats">
       <Box icon={faHeartPulse} title="Status">
-        {!data.led
-          ? '...'
-          : data.led.name == 'Finished'
-          ? 'Ladevorgang abgeschlossen'
-          : data.led.name == 'Charging'
-          ? 'Ladevorgang läuft...'
-          : data.led.name == 'Ready'
-          ? 'Bereit zum laden'
-          : data.led.name == 'Pulsate'
-          ? 'Ladevorgang pausiert'
-          : data.led.name == 'WaitAuth'
-          ? 'Authentifizierung nötig'
-          : ''}
+        {statusLabel(data)}
       </Box>
       <Box icon={faInfoCircle} title="Information">
         <p>{data.pha ? data.pha.filter(val => val).length : '-'} - phasiger Anschluss</p>

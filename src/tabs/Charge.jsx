@@ -1,10 +1,10 @@
 import ChargeToggle from '../components/ChargeToggle'
 import Stats from '../components/Stats'
 
-const Charge = ({ data }) => {
+const Charge = ({ data, refresh }) => {
   return (
     <>
-      <ChargeToggle data={data} />
+      <ChargeToggle data={data} refresh={refresh} />
       <Stats data={data} />
     </>
   )

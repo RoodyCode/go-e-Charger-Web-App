@@ -1,35 +1,31 @@
 import { ip } from '../config'
+import { chargePhase } from '../chargeState'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt, faLock, faCheck, faStop } from '@fortawesome/free-solid-svg-icons'
 
 const ChargeToggle = ({ data, refresh }) => {
-  const authenticate = () => fetch(`${ip}/api/set?trx=0`)
-  const startCharging = () => fetch(`${ip}/api/set?frc=2`)
-  const stopCharging = () => fetch(`${ip}/api/set?frc=1`)
+  const phase = chargePhase(data)
+  const send = async query => {
+    await fetch(`${ip}/api/set?${query}`)
+    refresh()
+  }
 
   const getIcon = () => {
-    if (!data.led) return faBolt
-    console.log(data.led.name)
-    if (data.led.name == 'Finished') return faCheck
-    if (data.led.name == 'Charging') return faStop
-    if (data.led.name == 'Ready') return faBolt
-    if (data.led.name == 'WaitAuth') return faLock
-    if (data.led.name == 'Pulsate') return faBolt
-    else return faLock
+    if (phase === 'finished') return faCheck
+    if (phase === 'charging') return faStop
+    if (phase === 'auth' || phase === 'error') return faLock
+    return faBolt
   }
   const chargeHandler = () => {
-    if (!data.led) return
-    if (data.led.name == 'Finished') return
-    if (data.led.name == 'Charging') stopCharging()
-    if (data.led.name == 'Ready') startCharging()
-    if (data.led.name == 'Pulsate') startCharging()
-    if (data.led.name == 'WaitAuth') authenticate()
+    if (phase === 'charging') send('frc=1')
+    if (phase === 'ready' || phase === 'paused') send('frc=2')
+    if (phase === 'auth') send('trx=0')
   }
   return (
     <div
       onClick={chargeHandler}
-      className={`charge-toggle ${data.led && data.led.name == 'Charging' ? 'pulse' : ''}`}
+      className={`charge-toggle ${phase === 'charging' ? 'pulse' : ''}`}
     >
       <FontAwesomeIcon icon={getIcon()} />
     </div>
